@@ -8,6 +8,20 @@
     </head>
     <body>
         <a-scene>
+            <a-assets>
+            <img
+                id="bricks-base"
+                src="assets\Stylized_Bricks_004_basecolor.png"
+            >
+            <img
+                id="bricks-ambiant-occlusion"
+                src="assets/Stylized_Bricks_004_ambientOcclusion.png"
+            >
+            <img
+                id="bricks-normal"
+                src="assets\Stylized_Bricks_004_normal.png"
+            >
+            <img
             <a-plane
                 color="forestgreen"
                 position="0 0 0"
@@ -22,7 +36,14 @@
             </a-sky>
             <a-mixin
                 id="wallcolor"
-                color="antiquewhite"
+                material=
+                "src= #bricks-base"
+                repeat= "500 500"
+                ambiantOcclusionMap=" #bricks-ambiant-occlusion"
+                ambiantOcclusionTextureRepeat="500 500"
+                normalMap= "#bricks-normal"
+                normalTexturerepeat= "500 500"
+
             >
             </a-mixin>
             <a-box
