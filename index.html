@@ -3,7 +3,8 @@
     <head>
         <title> Project – [Amelia Chase]
         </title>
-        <script src=
+        <script 
+        src=
             "https://aframe.io/releases/1.7.0/aframe.min.js">
         </script>
     </head>
@@ -11,17 +12,70 @@
         <a-scene>
             <a-assets>
             <img
-                id="bricks-base"
-                src="assets\Stylized_Bricks_004_basecolor.png"
+                id="tiles-base"
+                src="Tiles_066_basecolor.png"
             >
             <img
-                id="bricks-ambiant-occlusion"
-                src="assets/Stylized_Bricks_004_ambientOcclusion.png"
+                id="tiles-ambiant-occlusion"
+                src="Tiles_066_ambientOcclusion.png"
             >
             <img
-                id="bricks-normal"
-                src="assets\Stylized_Bricks_004_normal.png"
+                id="tiles-normal"
+                src="Tiles_066_normal.png"
             >
+            <img
+                id="roof-base"
+                src="Roof_Tiles_Terracotta_006_basecolor.jpg"
+            >
+            <img
+                id="roof-ambient-occlusion"
+                src="Roof_Tiles_Terracotta_006_ambientOcclusion.jpg"
+            >
+            <img
+                id="roof-normal"
+                src="Roof_Tiles_Terracotta_006_normal.jpg"
+            >
+            <img
+                id="stylizedleaves-base"
+                src="Stylized_Leaves_001_basecolor(1).jpg"
+            >
+            <img
+                id="stylizedleaves-ambient-occlusion"
+                src="Stylized_Leaves_001_ambientOcclusion.jpg"
+            >
+            <img
+                id="stylizedleaves-normal"
+                src="Stylized_Leaves_001_normal(1).jpg"
+            >
+            <img
+                id="sky"
+                src="assets/Sky1.jpg"
+            >
+            <a-asset-item
+                id="door"
+                src="assets/Doorway.glb"
+            >
+            </a-asset-item>
+            <a-asset-item       
+                id="couch"
+                src="assets/Couch Large.glb"
+            >
+            </a-asset-item>
+            <a-asset-item
+                id="rockingchair"
+                src="assets/Rocking Chair.glb"
+            >
+            </a-asset-item>
+            <a-asset-item
+                id="sign"
+                src="assets/Wooden Sign.glb"
+            >
+            </a-asset-item>
+            <a-asset-item
+                id="kitchen"
+                src="assets/Kitchen.glb"
+            >
+            </a-asset-item>
             </a-assets>
             <a-plane
                 color="forestgreen"
@@ -32,18 +86,12 @@
             >
             </a-plane>
             <a-sky
-                color="lightskyblue"
+                src="#sky"
             >
             </a-sky>
             <a-mixin
                 id="wallcolor"
-                material=
-                "src= #bricks-base"
-                repeat= "500 500"
-                ambiantOcclusionMap=" #bricks-ambiant-occlusion"
-                ambiantOcclusionTextureRepeat="500 500"
-                normalMap= "#bricks-normal"
-                normalTexturerepeat= "500 500"
+                color="antiquewhite"
 
             >
             </a-mixin>
@@ -64,7 +112,6 @@
                 height="10"
                 depth="0.1"
             >
-            side wall
             </a-box>
             <a-box
                 mixin="wallcolor"
@@ -104,7 +151,13 @@
             >
             </a-box>
             <a-box
-                color="tan"
+                material:
+                src: #tiles-base 
+                repeat: 2 2
+                ambiantOcclusionMap: #tiles-ambiant-occlusion
+                ambiantOcclusionTextureRepeat: 2 2
+                normalMap: tiles-normal
+                normalTextureRepeat: 2 2
                 position="0 0 -11"
                 width="20"
                 depth="10"
@@ -112,7 +165,13 @@
             >
             </a-box>
             <a-box
-                color="peru"
+                material:
+                "src: #roof-base
+                repeat: 2 2
+                ambiantOcclusionMap: #roof-ambiant-occlusion
+                ambiantOcclusionTextureRepeat:2 2
+                normalMap: #roof-normal
+                normalTexturerepeat: 2 2"
                 position="0 6.5 -11"
                 width="22"
                 depth="12"
@@ -163,7 +222,13 @@
             </a-cone>
             <a-mixin
                 id="sphericaltreeleaves"
-                color="green"
+                material:
+                "src: #stylizedleaves-base
+                repeat: 2 2
+                ambiantOcclusionMap: #stylizedleaves-ambiant-occlusion
+                ambiantOcclusionTextureRepeat: 2 2
+                normalMap: #stylizedleaves-normal
+                normalTexturerepeat: 2 2"
                 geometry="radius:1"
             >
             </a-mixin>
@@ -177,6 +242,41 @@
                 position="4 2 -3"
             >
             </a-sphere>
+            <a-entity
+                gltf-model="#door"
+                position="1 0 -5.75"
+                rotation="0 180 0"
+                scale="3 3 3"
+            >
+            </a-entity>
+            <a-entity
+                gltf-model="#couch"
+                position="-8 0 -15"
+                rotation="0 0 0"
+                scale=".7 .7 .7"
+            >
+            </a-entity>
+            <a-entity
+                gltf-model="#rockingchair"
+                position="-6.2 0 -4"
+                rotation="0 45 0"
+                scale="2 2 2"
+            >
+            </a-entity>
+            <a-entity
+                gltf-model="#sign"
+                position="-2 0 -4"
+                rotation="0 0 0"
+                scale="1 1 1"
+            >
+            </a-entity>
+            <a-entity
+                gltf-model="#kitchen"
+                position="-3 0 -5"
+                rotation="0 0 0"
+                scale="1 1 1"
+            >
+            </a-entity>
             </a-scene>
             </body>
             </html>
