@@ -13,39 +13,39 @@
             <a-assets>
             <img
                 id="tiles-base"
-                src="Tiles_066_basecolor.png"
+                src="assets/Tiles_066_basecolor.png"
             >
             <img
                 id="tiles-ambiant-occlusion"
-                src="Tiles_066_ambientOcclusion.png"
+                src="assets/Tiles_066_ambientOcclusion.png"
             >
             <img
                 id="tiles-normal"
-                src="Tiles_066_normal.png"
+                src="assets/Tiles_066_normal.png"
             >
             <img
                 id="roof-base"
-                src="Roof_Tiles_Terracotta_006_basecolor.jpg"
+                src="assets/Roof_Tiles_Terracotta_006_basecolor.jpg"
             >
             <img
                 id="roof-ambient-occlusion"
-                src="Roof_Tiles_Terracotta_006_ambientOcclusion.jpg"
+                src="assets/Roof_Tiles_Terracotta_006_ambientOcclusion.jpg"
             >
             <img
                 id="roof-normal"
-                src="Roof_Tiles_Terracotta_006_normal.jpg"
+                src="assets/Roof_Tiles_Terracotta_006_normal.jpg"
             >
             <img
                 id="stylizedleaves-base"
-                src="Stylized_Leaves_001_basecolor(1).jpg"
+                src="assets/Stylized_Leaves_001_basecolor(1).jpg"
             >
             <img
                 id="stylizedleaves-ambient-occlusion"
-                src="Stylized_Leaves_001_ambientOcclusion.jpg"
+                src="assets/Stylized_Leaves_001_ambientOcclusion.jpg"
             >
             <img
                 id="stylizedleaves-normal"
-                src="Stylized_Leaves_001_normal(1).jpg"
+                src="assets/Stylized_Leaves_001_normal(1).jpg"
             >
             <img
                 id="sky"
@@ -73,7 +73,42 @@
             </a-asset-item>
             <a-asset-item
                 id="kitchen"
-                src="assets/Kitchen.glb"
+                src="assets/Kitchen(1).glb"
+            >
+            </a-asset-item>
+            <a-asset-item
+                id="whitedoor"
+                src="assets/Nice Door.glb"
+            >
+            </a-asset-item>
+            <a-asset-item
+                id="bed"
+                src="assets/Bed Double.glb"
+            >
+            </a-asset-item>
+            <a-asset-item
+                id="dining"
+                src="assets/Dining Set.glb"
+            >
+            </a-asset-item>
+            <a-asset-item
+                id="shower"
+                src="assets/Shower.glb"
+            >
+            </a-asset-item>
+            <a-asset-item
+                id="toilet"
+                src="assets/Toilet.glb"
+            >
+            </a-asset-item>
+            <a-asset-item
+                id="sink"
+                src="assets/Bathroom Sink Square.glb"
+            >
+            </a-asset-item>
+            <a-asset-item
+                id="toiletpaperholder"
+                src="assets/Bathroom Toilet Paper.glb"
             >
             </a-asset-item>
             </a-assets>
@@ -122,7 +157,6 @@
                 depth="0.1"
             >
             </a-box>
-            
             <a-box
                 mixin="wallcolor"
                 position="-5.45 1.5 -6"
@@ -151,13 +185,31 @@
             >
             </a-box>
             <a-box
-                material:
-                src: #tiles-base 
-                repeat: 2 2
-                ambiantOcclusionMap: #tiles-ambiant-occlusion
-                ambiantOcclusionTextureRepeat: 2 2
-                normalMap: tiles-normal
-                normalTextureRepeat: 2 2
+                mixin="wallcolor"
+                position="5 1.5 -11"
+                rotation="0 90 0"
+                width="10"
+                height="10"
+                depth="0.1"
+            >
+            </a-box>
+            <a-box
+                mixin="wallcolor"
+                position="7.5 1.5 -11"
+                rotation="0 0 0"
+                width="5"
+                height="10"
+                depth="0.1"
+            >
+            </a-box>
+            <a-box
+                material=
+                "src: #tiles-base; 
+                repeat: 10 10;
+                ambiantOcclusionMap: #tiles-ambiant-occlusion;
+                ambiantOcclusionTextureRepeat: 10 10;
+                normalMap: tiles-normal;
+                normalTextureRepeat: 10 10"
                 position="0 0 -11"
                 width="20"
                 depth="10"
@@ -165,13 +217,13 @@
             >
             </a-box>
             <a-box
-                material:
-                "src: #roof-base
-                repeat: 2 2
-                ambiantOcclusionMap: #roof-ambiant-occlusion
-                ambiantOcclusionTextureRepeat:2 2
-                normalMap: #roof-normal
-                normalTexturerepeat: 2 2"
+                material=
+                "src: #roof-base;
+                repeat: 10 10;
+                ambiantOcclusionMap: #roof-ambient-occlusion;
+                ambiantOcclusionTextureRepeat:10 10;
+                normalMap: #roof-normal;
+                normalTexturerepeat: 10 10"
                 position="0 6.5 -11"
                 width="22"
                 depth="12"
@@ -222,12 +274,12 @@
             </a-cone>
             <a-mixin
                 id="sphericaltreeleaves"
-                material:
-                "src: #stylizedleaves-base
-                repeat: 2 2
-                ambiantOcclusionMap: #stylizedleaves-ambiant-occlusion
-                ambiantOcclusionTextureRepeat: 2 2
-                normalMap: #stylizedleaves-normal
+                material=
+                "src: #stylizedleaves-base;
+                repeat: 2 2;
+                ambiantOcclusionMap: #stylizedleaves-ambiant-occlusion;
+                ambiantOcclusionTextureRepeat: 2 2;
+                normalMap: #stylizedleaves-normal;
                 normalTexturerepeat: 2 2"
                 geometry="radius:1"
             >
@@ -251,8 +303,8 @@
             </a-entity>
             <a-entity
                 gltf-model="#couch"
-                position="-8 0 -15"
-                rotation="0 0 0"
+                position="-8 0 -6.5"
+                rotation="0 180 0"
                 scale=".7 .7 .7"
             >
             </a-entity>
@@ -272,8 +324,71 @@
             </a-entity>
             <a-entity
                 gltf-model="#kitchen"
-                position="-3 0 -5"
+                position="3.6 1.5 -13.5"
+                rotation="0 -90 0"
+                scale="2.75 2.75 2.75"
+            >
+            </a-entity>
+            <a-entity
+                gltf-model="#whitedoor"
+                position="4.9 1.75 -7"
                 rotation="0 0 0"
+                scale="1.5 1.5 1.5"
+            >
+            </a-entity>
+            <a-entity
+                gltf-model="#whitedoor"
+                position="7.75 1.75 -10.75"
+                rotation="0 90 0"
+                scale="1.5 1.5 1.5"
+            >
+            </a-entity>
+            <a-entity
+                gltf-model="#whitedoor"
+                position="5.2 1.75 -7.2"
+                rotation="0 180 0"
+                scale="1.5 1.5 1.5"
+            >
+            </a-entity>
+            <a-entity
+                gltf-model="#whitedoor"
+                position="7.5 1.75 -11.2"
+                rotation="0 -90 0"
+                scale="1.5 1.5 1.5"
+            >
+            </a-entity>
+            <a-entity
+                gltf-model="#bed"
+                position="7 0 -9.5"
+                rotation="0 90 0"
+                scale="2.5 2.5 2.5"
+            >
+            </a-entity>
+            <a-entity
+                gltf-model="#shower"
+                position="6.9 1.5 -15"
+                rotation="0 90 0"
+                scale="1.25 1.25 1.25"
+            >
+            </a-entity>
+            <a-entity
+                gltf-model="#toilet"
+                position="9.1 0 -15"
+                rotation="0 0 0"
+                scale="0.15 0.15 0.15"
+            >
+            </a-entity>
+            <a-entity
+                gltf-model="#sink"
+                position="6.1 -0.5 -12.5"
+                rotation="0 -90 0"
+                scale="2.5 2.5 2.5"
+            >
+            </a-entity>
+            <a-entity
+                gltf-model="#toiletpaperholder"
+                position="9.85 0.75 -14.5"
+                rotation="0 -90 0"
                 scale="1 1 1"
             >
             </a-entity>
