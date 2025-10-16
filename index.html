@@ -7,6 +7,9 @@
         src=
             "https://aframe.io/releases/1.7.0/aframe.min.js">
         </script>
+        <script src=
+            "https://wsause.github.io/sause-extras/navigation.js">
+        </script>
     </head>
     <body>
         <a-scene>
@@ -16,7 +19,7 @@
                 src="assets/Tiles_066_basecolor.png"
             >
             <img
-                id="tiles-ambiant-occlusion"
+                id="tiles-ambient-occlusion"
                 src="assets/Tiles_066_ambientOcclusion.png"
             >
             <img
@@ -50,6 +53,30 @@
             <img
                 id="sky"
                 src="assets/Sky1.jpg"
+            >
+            <img
+                id="grassbase"
+                src="assets/Grass_005_BaseColor(1).jpg"
+            >
+            <img
+                id="grassambientocclusion"
+                src="assets/Grass_005_AmbientOcclusion(1).jpg"
+            >
+            <img
+                id="grassnormal"
+                src="assets/Grass_005_Normal(1).jpg"
+            >
+            <img
+                id="coneleavesbase"
+                src="assets/Stylized_Leaves_002_basecolor(1).jpg"
+            >
+            <img
+                id="coneleavesambientocclusion"
+                src="assets/Stylized_Leaves_002_ambientOcclusion(1).jpg"
+            >
+            <img
+                id="coneleavesnormal"
+                src="assets/Stylized_Leaves_002_normal(1).jpg"
             >
             <a-asset-item
                 id="door"
@@ -88,7 +115,7 @@
             </a-asset-item>
             <a-asset-item
                 id="dining"
-                src="assets/Dining Set.glb"
+                src="assets/Dining Set(1).glb"
             >
             </a-asset-item>
             <a-asset-item
@@ -113,7 +140,13 @@
             </a-asset-item>
             </a-assets>
             <a-plane
-                color="forestgreen"
+                material=
+                    "src: #grassbase;
+                     repeat: 500 500;
+                    ambientOcclusionMap: #grassambientocclusion;
+                    ambientOcclusionTextureRepeat: 500 500;
+                    normalMap: #grassnormal;
+                    normalTextureRepeat: 500 500"
                 position="0 0 0"
                 rotation="-90 0 0"
                 width="500"
@@ -206,8 +239,8 @@
                 material=
                 "src: #tiles-base; 
                 repeat: 10 10;
-                ambiantOcclusionMap: #tiles-ambiant-occlusion;
-                ambiantOcclusionTextureRepeat: 10 10;
+                ambientOcclusionMap: #tiles-ambient-occlusion;
+                ambientOcclusionTextureRepeat: 10 10;
                 normalMap: tiles-normal;
                 normalTextureRepeat: 10 10"
                 position="0 0 -11"
@@ -220,10 +253,10 @@
                 material=
                 "src: #roof-base;
                 repeat: 10 10;
-                ambiantOcclusionMap: #roof-ambient-occlusion;
-                ambiantOcclusionTextureRepeat:10 10;
+                ambientOcclusionMap: #roof-ambient-occlusion;
+                ambientOcclusionTextureRepeat:10 10;
                 normalMap: #roof-normal;
-                normalTexturerepeat: 10 10"
+                normalTextureRepeat: 10 10"
                 position="0 6.5 -11"
                 width="22"
                 depth="12"
@@ -258,18 +291,27 @@
             </a-cylinder>
             <a-mixin
                 id="conicaltreeleaves"
-                color="green"
+                material =
+                "src: #coneleavesbase;
+                repeat: 2 2;
+                ambientOcclusionMap: #coneleavesambientocclusion;
+                ambientOcclusionTextureRepeat: 2 2;
+                normalMap: #coneleavesnormal;
+                normalTextureRepeat: 2 2;"
+                geometry="radius-bottom:1; height:3"
                 geometry="radius-bottom:1; height:3"
             >
             </a-mixin>
             <a-cone
                 mixin="conicaltreeleaves"
                 position="-8 2.25 -3"
+                class="collidable"
             >
             </a-cone>
             <a-cone
                 mixin="conicaltreeleaves"
                 position="8 2.25 -3"
+                class="collidable"
             >
             </a-cone>
             <a-mixin
@@ -277,21 +319,23 @@
                 material=
                 "src: #stylizedleaves-base;
                 repeat: 2 2;
-                ambiantOcclusionMap: #stylizedleaves-ambiant-occlusion;
-                ambiantOcclusionTextureRepeat: 2 2;
+                ambientOcclusionMap: #stylizedleaves-ambient-occlusion;
+                ambientOcclusionTextureRepeat: 2 2;
                 normalMap: #stylizedleaves-normal;
-                normalTexturerepeat: 2 2"
+                normalTextureRepeat: 2 2"
                 geometry="radius:1"
             >
             </a-mixin>
             <a-sphere
                 mixin="sphericaltreeleaves"
                 position="-3.5 2 -3"
+                class="collidable"
             >
             </a-sphere>
             <a-sphere
                 mixin="sphericaltreeleaves"
                 position="4 2 -3"
+                class="collidable"
             >
             </a-sphere>
             <a-entity
@@ -306,6 +350,7 @@
                 position="-8 0 -6.5"
                 rotation="0 180 0"
                 scale=".7 .7 .7"
+                class="collidable"
             >
             </a-entity>
             <a-entity
@@ -313,6 +358,7 @@
                 position="-6.2 0 -4"
                 rotation="0 45 0"
                 scale="2 2 2"
+                class="collidable"
             >
             </a-entity>
             <a-entity
@@ -320,6 +366,7 @@
                 position="-2 0 -4"
                 rotation="0 0 0"
                 scale="1 1 1"
+                class="collidable"
             >
             </a-entity>
             <a-entity
@@ -327,6 +374,7 @@
                 position="3.6 1.5 -13.5"
                 rotation="0 -90 0"
                 scale="2.75 2.75 2.75"
+                class="collidable"
             >
             </a-entity>
             <a-entity
@@ -362,6 +410,7 @@
                 position="7 0 -9.5"
                 rotation="0 90 0"
                 scale="2.5 2.5 2.5"
+                class="collidable"
             >
             </a-entity>
             <a-entity
@@ -376,6 +425,7 @@
                 position="9.1 0 -15"
                 rotation="0 0 0"
                 scale="0.15 0.15 0.15"
+                class="collidable"
             >
             </a-entity>
             <a-entity
@@ -383,6 +433,7 @@
                 position="6.1 -0.5 -12.5"
                 rotation="0 -90 0"
                 scale="2.5 2.5 2.5"
+                class="collidable"
             >
             </a-entity>
             <a-entity
@@ -390,7 +441,96 @@
                 position="9.85 0.75 -14.5"
                 rotation="0 -90 0"
                 scale="1 1 1"
+                class="collidable"
             >
+            </a-entity>
+                <a-entity
+                    id="rig"
+                    navigation
+                >
+                <a-camera
+                    id="camera"
+                    wasd-controls="enabled: false"
+                    look-controls="enabled: false"
+                >
+                </a-camera>
+                <a-entity
+                    id="right-hand"
+                    laser-controls="hand: right"
+                >
+                </a-entity>
+                <a-entity
+                    id="left-hand"
+                    laser-controls="hand: left"
+                >
+                </a-entity>
+                <a-entity
+                    id="waist-raycaster-front"
+                    raycaster=
+                    "objects: .collidable;
+                    showLine: false;
+                    far: 0.1"
+                    position="0 1 0"
+                >
+                </a-entity>
+                <a-entity
+                    id="head-raycaster-front"
+                    raycaster=
+                    "objects: .collidable;
+                    showLine: false;
+                    far: 0.1"
+                    position="0 1.6 0"
+                >
+                </a-entity>
+                <a-entity   
+                    id="knees-raycaster-front"
+                    raycaster=
+                    "objects: .collidable;
+                    showLine: false;
+                    far: 0.1"
+                    position="0 0.5 0"
+                >
+                </a-entity>
+                <a-entity
+                    id="waist-raycaster-back"
+                    raycaster=
+                    "objects: .collidable;
+                    showLine: false;
+                    far: 0.1;
+                    direction: 0 0 1"
+                    position="0 1 0"
+                >
+                </a-entity>
+                <a-entity
+                    id="head-raycaster-back"
+                    raycaster=
+                    "objects: .collidable;
+                    showLine: false;
+                    far: 0.1;
+                    direction: 0 0 1"
+                    position="0 1.6 0"
+                >
+                </a-entity>
+                <a-entity
+                    id="knees-raycaster-back"
+                    raycaster=
+                    "objects: .collidable;
+                    showLine: false;
+                    far: 0.1;
+                    direction: 0 0 1"
+                    position="0 0.5 0"
+                >
+                </a-entity>
+                <a-entity
+                    id="feet-raycaster"
+                    raycaster=
+                    "objects: .collidable;
+                    showLine: false;
+                    far: 5;
+                    direction: 0 -1 0"
+                    position="0 0.45 0"
+                >
+                </a-entity>
             </a-entity>
             </a-scene>
             </body>
